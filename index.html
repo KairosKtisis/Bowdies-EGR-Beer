@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -80,256 +79,255 @@
     background-size: 320px 320px;
   }
 
-/* === Ornate page frame === */
-/* A decorative gold border — anchored to the document so the top appears at
-the page top and the bottom appears at the very end of the content. */
-.page-frame {
-position: absolute;
-inset: 14px;
-pointer-events: none;
-z-index: 3;
-}
-.page-frame .edge {
-position: absolute;
-background: linear-gradient(var(–axis), transparent 0%, var(–gold) 3%, var(–gold) 97%, transparent 100%);
-opacity: 0.6;
-}
-.page-frame .edge.top, .page-frame .edge.bottom {
-left: 40px; right: 40px; height: 1px;
-–axis: 90deg;
-}
-.page-frame .edge.top { top: 0; }
-.page-frame .edge.bottom { bottom: 0; }
-.page-frame .edge.left, .page-frame .edge.right {
-top: 40px; bottom: 40px; width: 1px;
-–axis: 0deg;
-}
-.page-frame .edge.left { left: 0; }
-.page-frame .edge.right { right: 0; }
-.page-frame .inner {
-position: absolute;
-inset: 6px;
-border: 0.5px solid var(–gold-soft);
-opacity: 0.22;
-}
+  /* === Ornate page frame === */
+  /* A decorative gold border — anchored to the document so the top appears at
+     the page top and the bottom appears at the very end of the content. */
+  .page-frame {
+    position: absolute;
+    inset: 14px;
+    pointer-events: none;
+    z-index: 3;
+  }
+  .page-frame .edge {
+    position: absolute;
+    background: linear-gradient(var(--axis), transparent 0%, var(--gold) 3%, var(--gold) 97%, transparent 100%);
+    opacity: 0.6;
+  }
+  .page-frame .edge.top, .page-frame .edge.bottom {
+    left: 40px; right: 40px; height: 1px;
+    --axis: 90deg;
+  }
+  .page-frame .edge.top { top: 0; }
+  .page-frame .edge.bottom { bottom: 0; }
+  .page-frame .edge.left, .page-frame .edge.right {
+    top: 40px; bottom: 40px; width: 1px;
+    --axis: 0deg;
+  }
+  .page-frame .edge.left { left: 0; }
+  .page-frame .edge.right { right: 0; }
+  .page-frame .inner {
+    position: absolute;
+    inset: 6px;
+    border: 0.5px solid var(--gold-soft);
+    opacity: 0.22;
+  }
 
-/* === Entrance animations === */
-@keyframes rise {
-from { opacity: 0; transform: translateY(8px); }
-to { opacity: 1; transform: translateY(0); }
-}
-@keyframes edge-grow-h { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes edge-grow-v { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  /* === Entrance animations === */
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes edge-grow-h { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  @keyframes edge-grow-v { from { transform: scaleY(0); } to { transform: scaleY(1); } }
 
-.page-frame .edge.top { animation: edge-grow-h 1.1s ease-out 0.35s both; transform-origin: center; }
-.page-frame .edge.bottom { animation: edge-grow-h 1.1s ease-out 0.45s both; transform-origin: center; }
-.page-frame .edge.left { animation: edge-grow-v 1.1s ease-out 0.4s both; transform-origin: center; }
-.page-frame .edge.right { animation: edge-grow-v 1.1s ease-out 0.5s both; transform-origin: center; }
-.page-frame .inner { animation: rise 1.2s ease-out 1.0s both; }
+  .page-frame .edge.top { animation: edge-grow-h 1.1s ease-out 0.35s both; transform-origin: center; }
+  .page-frame .edge.bottom { animation: edge-grow-h 1.1s ease-out 0.45s both; transform-origin: center; }
+  .page-frame .edge.left { animation: edge-grow-v 1.1s ease-out 0.4s both; transform-origin: center; }
+  .page-frame .edge.right { animation: edge-grow-v 1.1s ease-out 0.5s both; transform-origin: center; }
+  .page-frame .inner { animation: rise 1.2s ease-out 1.0s both; }
 
-.masthead { opacity: 0; animation: rise 0.7s ease-out 0.05s forwards; }
-.panel { opacity: 0; animation: rise 0.7s ease-out 0.5s forwards; }
+  .masthead { opacity: 0; animation: rise 0.7s ease-out 0.05s forwards; }
+  .panel { opacity: 0; animation: rise 0.7s ease-out 0.5s forwards; }
 
-@media (max-width: 480px) {
-.page-frame { inset: 8px; }
-.page-frame .inner { inset: 4px; }
-.page-frame .edge.top, .page-frame .edge.bottom { left: 28px; right: 28px; }
-.page-frame .edge.left, .page-frame .edge.right { top: 28px; bottom: 28px; }
-}
-.masthead {
-text-align: center;
-padding: 8px 0 18px;
-border-bottom: 1px solid var(–rule);
-position: relative;
-}
-.wordmark {
-font-family: ‘Playfair Display’, serif;
-font-weight: 500;
-font-style: normal;
-font-size: 50px;
-letter-spacing: 0.04em;
-color: var(–ink);
-line-height: 1;
-margin: 4px 0 14px;
-}
-.wm-b {
-display: inline-block;
-font-weight: 600;
-transform: scaleY(1.26);
-transform-origin: bottom center;
-}
-.wm-apos {
-display: inline-block;
-transform: translateY(-0.2em);
-}
-.masthead-info {
-display: flex;
-justify-content: space-between;
-align-items: baseline;
-border-top: 1px solid var(–rule);
-padding-top: 10px;
-gap: 8px;
-font-family: ‘Playfair Display’, serif;
-font-style: italic;
-font-size: 11px;
-color: var(–ink-soft);
-letter-spacing: 0.02em;
-}
-.masthead-info .info-center {
-font-style: italic;
-color: var(–ink);
-}
-.section-title {
-font-family: ‘Playfair Display’, serif;
-font-weight: 600;
-font-style: italic;
-font-size: 28px;
-text-align: center;
-margin: 28px 0 0;
-color: var(–ink);
-position: relative;
-display: flex;
-align-items: center;
-justify-content: center;
-gap: 18px;
-}
-.section-title::before,
-.section-title::after {
-content: “”;
-flex: 0 0 50px;
-height: 1px;
-background: linear-gradient(to right, transparent, var(–gold), transparent);
-}
-.section-flourish {
-text-align: center;
-color: var(–gold);
-letter-spacing: 0.6em;
-font-size: 14px;
-margin: 8px 0 18px;
-}
-.subhead {
-font-family: ‘Playfair Display’, serif;
-font-style: italic;
-font-weight: 500;
-font-size: 16px;
-text-align: center;
-color: var(–gold-soft);
-letter-spacing: 0.18em;
-text-transform: uppercase;
-margin: 44px 0 4px;
-}
-.panel .subhead:first-of-type {
-margin-top: 22px;
-}
-.subhead-rule {
-text-align: center;
-color: var(–gold);
-letter-spacing: 0.4em;
-font-size: 10px;
-margin-bottom: 10px;
-}
-.beer {
-display: grid;
-grid-template-columns: 1fr auto;
-align-items: baseline;
-margin: 12px 0;
-padding: 4px 4px;
-transition: background 0.25s;
-border-radius: 2px;
-}
-@media (hover: hover) {
-.beer:hover {
-background: rgba(201, 161, 74, 0.06);
-}
-.beer:hover .leader-dots {
-border-bottom-color: var(–gold);
-border-bottom-style: solid;
-opacity: 0.5;
-}
-.beer:hover .price {
-color: var(–gold-soft);
-}
-}
-.beer-name {
-font-family: ‘Playfair Display’, serif;
-font-weight: 600;
-font-variant: small-caps;
-letter-spacing: 0.04em;
-font-size: 17px;
-color: var(–ink);
-line-height: 1.3;
-word-wrap: break-word;
-overflow-wrap: break-word;
-}
-.beer-origin {
-font-style: italic;
-font-size: 13px;
-color: var(–ink-soft);
-font-weight: 400;
-display: block;
-margin-top: 2px;
-letter-spacing: 0.01em;
-}
-.price {
-font-family: ‘Playfair Display’, serif;
-font-weight: 500;
-font-size: 16px;
-color: var(–ink);
-padding-left: 12px;
-white-space: nowrap;
-}
-.leader-row {
-display: flex;
-align-items: baseline;
-flex: 1;
-min-width: 0;
-}
-.leader-text {
-min-width: 0;
-flex-shrink: 1;
-}
-.leader-dots {
-flex: 1;
-border-bottom: 1px dotted var(–rule);
-margin: 0 6px;
-transform: translateY(-3px);
-transition: border-bottom-color 0.25s, border-bottom-style 0.25s, opacity 0.25s;
-}
-.unavailable {
-display: none;
-}
-.footer {
-text-align: center;
-margin: 40px 0 0;
-padding-top: 20px;
-border-top: 1px solid var(–rule);
-font-size: 11px;
-letter-spacing: 0.15em;
-color: var(–ink-soft);
-font-style: italic;
-line-height: 1.7;
-}
-.footer-flourish {
-color: var(–gold);
-letter-spacing: 0.5em;
-font-size: 12px;
-margin-bottom: 10px;
-}
-.container {
-max-width: 520px;
-margin: 0 auto;
-}
-@media (max-width: 380px) {
-.wordmark { font-size: 42px; }
-.masthead-info { font-size: 10px; }
-.section-title { font-size: 22px; gap: 12px; }
-.section-title::before, .section-title::after { flex-basis: 32px; }
-.beer-name { font-size: 15px; }
-.beer-origin { font-size: 12px; }
-.price { font-size: 15px; }
-}
+  @media (max-width: 480px) {
+    .page-frame { inset: 8px; }
+    .page-frame .inner { inset: 4px; }
+    .page-frame .edge.top, .page-frame .edge.bottom { left: 28px; right: 28px; }
+    .page-frame .edge.left, .page-frame .edge.right { top: 28px; bottom: 28px; }
+  }
+  .masthead {
+    text-align: center;
+    padding: 8px 0 18px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+  }
+  .wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    line-height: 1;
+    margin: 4px 0 14px;
+  }
+  .wm-b {
+    display: inline-block;
+    font-weight: 600;
+    transform: scaleY(1.26);
+    transform-origin: bottom center;
+  }
+  .wm-apos {
+    display: inline-block;
+    transform: translateY(-0.2em);
+  }
+  .masthead-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-top: 1px solid var(--rule);
+    padding-top: 10px;
+    gap: 8px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-soft);
+    letter-spacing: 0.02em;
+  }
+  .masthead-info .info-center {
+    font-style: italic;
+    color: var(--ink);
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 28px;
+    text-align: center;
+    margin: 28px 0 0;
+    color: var(--ink);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+  }
+  .section-title::before,
+  .section-title::after {
+    content: "";
+    flex: 0 0 50px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .section-flourish {
+    text-align: center;
+    color: var(--gold);
+    letter-spacing: 0.6em;
+    font-size: 14px;
+    margin: 8px 0 18px;
+  }
+  .subhead {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 16px;
+    text-align: center;
+    color: var(--gold-soft);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin: 44px 0 4px;
+  }
+  .panel .subhead:first-of-type {
+    margin-top: 22px;
+  }
+  .subhead-rule {
+    text-align: center;
+    color: var(--gold);
+    letter-spacing: 0.4em;
+    font-size: 10px;
+    margin-bottom: 10px;
+  }
+  .beer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    margin: 12px 0;
+    padding: 4px 4px;
+    transition: background 0.25s;
+    border-radius: 2px;
+  }
+  @media (hover: hover) {
+    .beer:hover {
+      background: rgba(201, 161, 74, 0.06);
+    }
+    .beer:hover .leader-dots {
+      border-bottom-color: var(--gold);
+      border-bottom-style: solid;
+      opacity: 0.5;
+    }
+    .beer:hover .price {
+      color: var(--gold-soft);
+    }
+  }
+  .beer-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-variant: small-caps;
+    letter-spacing: 0.04em;
+    font-size: 17px;
+    color: var(--ink);
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .beer-origin {
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-soft);
+    font-weight: 400;
+    display: block;
+    margin-top: 2px;
+    letter-spacing: 0.01em;
+  }
+  .price {
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--ink);
+    padding-left: 12px;
+    white-space: nowrap;
+  }
+  .leader-row {
+    display: flex;
+    align-items: baseline;
+    flex: 1;
+    min-width: 0;
+  }
+  .leader-text {
+    min-width: 0;
+    flex-shrink: 1;
+  }
+  .leader-dots {
+    flex: 1;
+    border-bottom: 1px dotted var(--rule);
+    margin: 0 6px;
+    transform: translateY(-3px);
+    transition: border-bottom-color 0.25s, border-bottom-style 0.25s, opacity 0.25s;
+  }
+  .unavailable {
+    display: none;
+  }
+  .footer {
+    text-align: center;
+    margin: 40px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--ink-soft);
+    font-style: italic;
+    line-height: 1.7;
+  }
+  .footer-flourish {
+    color: var(--gold);
+    letter-spacing: 0.5em;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .container {
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  @media (max-width: 380px) {
+    .wordmark { font-size: 42px; }
+    .masthead-info { font-size: 10px; }
+    .section-title { font-size: 22px; gap: 12px; }
+    .section-title::before, .section-title::after { flex-basis: 32px; }
+    .beer-name { font-size: 15px; }
+    .beer-origin { font-size: 12px; }
+    .price { font-size: 15px; }
+  }
 </style>
-
 </head>
 <body>
 <div class="page-frame" aria-hidden="true">
@@ -352,49 +350,47 @@ margin: 0 auto;
 
   <section class="panel">
 
-```
-<h2 class="section-title">Beer</h2>
+    <h2 class="section-title">Beer</h2>
 
-<div class="subhead">Michigan</div>
-<div class="subhead-rule">· · ·</div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Founders All Day IPA</div><div class="beer-origin">Founders Brewing Co., Grand Rapids</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bell's Two Hearted IPA</div><div class="beer-origin">Bell's Brewery, Comstock</div></div><div class="leader-dots"></div></div><div class="price">$6.50</div></div>
-<div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bell's Oberon</div><div class="beer-origin">Bell's Brewery, Comstock · Wheat Ale</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bell's Oberon Light</div><div class="beer-origin">Bell's Brewery, Comstock · Wheat Ale</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">New Holland Dragon's Milk</div><div class="beer-origin">New Holland Brewing, Holland · Bourbon Barrel Stout</div></div><div class="leader-dots"></div></div><div class="price">$10</div></div>
+    <div class="subhead">Michigan</div>
+    <div class="subhead-rule">· · ·</div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Founders All Day IPA</div><div class="beer-origin">Founders Brewing Co., Grand Rapids</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bell's Two Hearted IPA</div><div class="beer-origin">Bell's Brewery, Comstock</div></div><div class="leader-dots"></div></div><div class="price">$6.50</div></div>
+    <div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bell's Oberon</div><div class="beer-origin">Bell's Brewery, Comstock · Wheat Ale</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bell's Oberon Light</div><div class="beer-origin">Bell's Brewery, Comstock · Wheat Ale</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">New Holland Dragon's Milk</div><div class="beer-origin">New Holland Brewing, Holland · Bourbon Barrel Stout</div></div><div class="leader-dots"></div></div><div class="price">$10</div></div>
 
-<div class="subhead">Domestic</div>
-<div class="subhead-rule">· · ·</div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Budweiser</div><div class="beer-origin">Anheuser-Busch, St. Louis · Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bud Light</div><div class="beer-origin">Anheuser-Busch, St. Louis · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
-<div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Busch Light</div><div class="beer-origin">Anheuser-Busch, St. Louis · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Coors Light</div><div class="beer-origin">Coors Brewing, Golden · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Michelob Ultra</div><div class="beer-origin">Anheuser-Busch, St. Louis · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
-<div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Miller Lite</div><div class="beer-origin">Miller Brewing, Milwaukee · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Yuengling</div><div class="beer-origin">D.G. Yuengling &amp; Son, Pottsville · Amber Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Goose Island 312</div><div class="beer-origin">Goose Island, Chicago · Urban Wheat Ale</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="subhead">Domestic</div>
+    <div class="subhead-rule">· · ·</div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Budweiser</div><div class="beer-origin">Anheuser-Busch, St. Louis · Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Bud Light</div><div class="beer-origin">Anheuser-Busch, St. Louis · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
+    <div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Busch Light</div><div class="beer-origin">Anheuser-Busch, St. Louis · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Coors Light</div><div class="beer-origin">Coors Brewing, Golden · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Michelob Ultra</div><div class="beer-origin">Anheuser-Busch, St. Louis · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
+    <div class="beer unavailable"><div class="leader-row"><div class="leader-text"><div class="beer-name">Miller Lite</div><div class="beer-origin">Miller Brewing, Milwaukee · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Yuengling</div><div class="beer-origin">D.G. Yuengling &amp; Son, Pottsville · Amber Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Goose Island 312</div><div class="beer-origin">Goose Island, Chicago · Urban Wheat Ale</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
 
-<div class="subhead">Imports</div>
-<div class="subhead-rule">· · ·</div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Corona Extra</div><div class="beer-origin">Grupo Modelo, Mexico · Pale Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Modelo Especial</div><div class="beer-origin">Grupo Modelo, Mexico · Pilsner-Style Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Modelo Negra</div><div class="beer-origin">Grupo Modelo, Mexico · Munich Dunkel</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Heineken</div><div class="beer-origin">Heineken, Netherlands · Pale Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Stella Artois</div><div class="beer-origin">AB InBev, Belgium · Pilsner</div></div><div class="leader-dots"></div></div><div class="price">$5</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Guinness Draught</div><div class="beer-origin">Guinness, Dublin · Irish Dry Stout</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Labatt Blue</div><div class="beer-origin">Labatt Brewing, Canada · Pale Lager</div></div><div class="leader-dots"></div></div><div class="price">$5</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Labatt Blue Light</div><div class="beer-origin">Labatt Brewing, Canada · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5</div></div>
+    <div class="subhead">Imports</div>
+    <div class="subhead-rule">· · ·</div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Corona Extra</div><div class="beer-origin">Grupo Modelo, Mexico · Pale Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Modelo Especial</div><div class="beer-origin">Grupo Modelo, Mexico · Pilsner-Style Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Modelo Negra</div><div class="beer-origin">Grupo Modelo, Mexico · Munich Dunkel</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Heineken</div><div class="beer-origin">Heineken, Netherlands · Pale Lager</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Stella Artois</div><div class="beer-origin">AB InBev, Belgium · Pilsner</div></div><div class="leader-dots"></div></div><div class="price">$5</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Guinness Draught</div><div class="beer-origin">Guinness, Dublin · Irish Dry Stout</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Labatt Blue</div><div class="beer-origin">Labatt Brewing, Canada · Pale Lager</div></div><div class="leader-dots"></div></div><div class="price">$5</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Labatt Blue Light</div><div class="beer-origin">Labatt Brewing, Canada · Light Lager</div></div><div class="leader-dots"></div></div><div class="price">$5</div></div>
 
-<div class="subhead">Non-Alcoholic</div>
-<div class="subhead-rule">· · ·</div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Athletic Brewing Co.</div><div class="beer-origin">Athletic Brewing, Connecticut · Non-Alcoholic</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Heineken 0.0</div><div class="beer-origin">Heineken, Netherlands · Non-Alcoholic Lager</div></div><div class="leader-dots"></div></div><div class="price">$6.50</div></div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Stella Artois Liberté</div><div class="beer-origin">AB InBev, Belgium · Non-Alcoholic Pilsner</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
+    <div class="subhead">Non-Alcoholic</div>
+    <div class="subhead-rule">· · ·</div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Athletic Brewing Co.</div><div class="beer-origin">Athletic Brewing, Connecticut · Non-Alcoholic</div></div><div class="leader-dots"></div></div><div class="price">$5.50</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Heineken 0.0</div><div class="beer-origin">Heineken, Netherlands · Non-Alcoholic Lager</div></div><div class="leader-dots"></div></div><div class="price">$6.50</div></div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">Stella Artois Liberté</div><div class="beer-origin">AB InBev, Belgium · Non-Alcoholic Pilsner</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
 
-<div class="subhead">Ready-to-Drink</div>
-<div class="subhead-rule">· · ·</div>
-<div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">The Long Drink</div><div class="beer-origin">The Long Drink Company, Finland · Gin &amp; Citrus</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
-```
+    <div class="subhead">Ready-to-Drink</div>
+    <div class="subhead-rule">· · ·</div>
+    <div class="beer"><div class="leader-row"><div class="leader-text"><div class="beer-name">The Long Drink</div><div class="beer-origin">The Long Drink Company, Finland · Gin &amp; Citrus</div></div><div class="leader-dots"></div></div><div class="price">$6</div></div>
 
   </section>
 
